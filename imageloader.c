@@ -90,11 +90,24 @@ Image *readData(char *filename)
 //Given an image, prints to stdout (e.g. with printf) a .ppm P3 file with the image's data.
 void writeData(Image *image)
 {
+		printf("P3\n");
+
+		printf("%d %d\n", image->cols, image->rows);
+
+		for (int i = 0; i < image->rows; i++) {
+				for (int j = 0; j < image->cols; j++) {
+						printf("%3d %3d %3d\t", image->image[i][j].R, image->image[i][j].G, image->image[i][j].B);
+				}
+				printf("\n");
+		}
 	//YOUR CODE HERE
 }
 
 //Frees an image
-void freeImage(Image *image)
-{
-	//YOUR CODE HERE
+void freeImage(Image *image){
+  for (int i = 0; i < image->rows; i++) {
+			free(image->image[i]);
+  }
+	free(image);
+  // YOUR CODE HERE
 }
