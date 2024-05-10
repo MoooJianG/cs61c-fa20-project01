@@ -1,0 +1,2 @@
+./gameOfLife testInputs/JohnConway.ppm
+Usage: ./gameOfLife <filename>
